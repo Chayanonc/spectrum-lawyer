@@ -208,7 +208,7 @@ export default function Home() {
                   services.
                 </p>
               </BlurFade> */}
-              <h2 className="text-white text-2xl mt-4 sm:mt-8 mb-6 font-light">
+              <h2 className="text-white text-base sm:text-2xl mt-4 sm:mt-8 mb-6 font-light">
                 International Law Firm in Phuket, Thailand
               </h2>
               <p className="text-white/80 text-sm sm:text-lg mb-8 max-w-2xl mx-auto p-3 sm:p-0 font-light">
@@ -217,7 +217,7 @@ export default function Home() {
                 expertise to deliver clear, practical, and effective legal
                 services.
               </p>
-              <div className="flex gap-4 justify-center flex-wrap">
+              <div className="flex-col sm:flex-none flex gap-4 justify-center flex-wrap">
                 <Button className="min-w-[200px] bg-[#f47832]">
                   Get Consultation
                 </Button>
