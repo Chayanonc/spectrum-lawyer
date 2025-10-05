@@ -217,7 +217,7 @@ export default function Home() {
                 expertise to deliver clear, practical, and effective legal
                 services.
               </p>
-              <div className="flex-col sm:flex-none flex gap-4 justify-center flex-wrap">
+              <div className="flex-col sm:flex-row flex gap-4 justify-center flex-wrap">
                 <Button className="min-w-[200px] bg-[#f47832]">
                   Get Consultation
                 </Button>
