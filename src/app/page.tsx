@@ -1,14 +1,9 @@
 import MainLayout from "@/components/layout/main.layout";
 import { StripedPattern } from "@/components/magicui/striped-pattern";
 import { Button } from "@/components/ui/button";
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
-import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { cn } from "@/lib/utils";
-import { HyperText } from "@/components/ui/hyper-text";
-
 import Image from "next/image";
-import { BlurFade } from "@/components/ui/blur-fade";
+
 export default function Home() {
   return (
     <div>

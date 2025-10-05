@@ -12,9 +12,19 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#002f59",
     icons: [
       {
-        src: "/assets/logo/spectrum-logo.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/assets/favico/icon1.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/assets/favico/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+      {
+        src: "/assets/favico/favicon.ico",
+        sizes: "32x32",
+        type: "image/x-icon",
       },
     ],
     lang: "en",
