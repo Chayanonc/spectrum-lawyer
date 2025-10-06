@@ -262,4 +262,22 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Responsive improvements */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Better text rendering on mobile */
+  @media (max-width: 768px) {
+    body {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
 }

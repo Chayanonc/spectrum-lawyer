@@ -14,14 +14,17 @@ export const metadata: Metadata = {
     "Spectrum Legal Solutions - International Law Firm in Phuket, Thailand",
   description:
     "Spectrum Legal Solutions is an international law firm based in Phuket, Thailand, providing comprehensive legal services including corporate law, international business, real estate, immigration, and cross-border legal matters for clients worldwide.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
   icons: {
     icon: [
       { url: "/assets/favico/favicon.ico", sizes: "any" },
       { url: "/assets/favico/icon1.png", type: "image/png" },
     ],
-    apple: [
-      { url: "/assets/favico/apple-icon.png", type: "image/png" },
-    ],
+    apple: [{ url: "/assets/favico/apple-icon.png", type: "image/png" }],
     other: [
       {
         rel: "mask-icon",
@@ -112,14 +115,32 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Additional favicon meta tags */}
-        <link rel="icon" type="image/x-icon" href="/assets/favico/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favico/icon1.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favico/icon1.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favico/apple-icon.png" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/assets/favico/favicon.ico"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/assets/favico/icon1.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/assets/favico/icon1.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/assets/favico/apple-icon.png"
+        />
         <link rel="mask-icon" href="/assets/favico/icon0.svg" color="#002f59" />
         <meta name="msapplication-TileColor" content="#002f59" />
         <meta name="theme-color" content="#002f59" />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

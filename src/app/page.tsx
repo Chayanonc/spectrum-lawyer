@@ -26,7 +26,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 z-10">
           <MainLayout>
             <div className="text-center z-10 flex flex-col items-center justify-center">
-              <div className="w-[80px] h-[80px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[250px] lg:h-[250px] text-white rounded-2xl">
+              <div className="w-[80px] h-[80px] sm:w-[300px] sm:h-[300px] md:w-[150px] md:h-[150px] lg:w-[250px] lg:h-[250px] text-white rounded-2xl">
                 <Image
                   src="/assets/logo/spectrum-white.png"
                   alt="Spectrum Legal Solutions - International Law Firm in Phuket, Thailand"
@@ -41,7 +41,7 @@ export default function Home() {
                 animation="blurInUp"
                 by="character"
                 duration={2}
-                className="text-white font-medium text-xl sm:text-6xl my-3"
+                className="text-white font-medium text-xl sm:text-3xl lg:text-6xl my-3"
               >
                 SPECTRUM LEGAL SOLUTIONS
               </TextAnimate>
@@ -97,7 +97,7 @@ export default function Home() {
           />
         </div>
         <div className="w-full h-full flex flex-col justify-center items-center relative gap-10">
-          <div className="rounded-full overflow-hidden w-[150px] h-[150px] sm:w-[300px] sm:h-[300px] ring-[4px] ring-background ring-offset-2">
+          <div className="rounded-full overflow-hidden w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] ring-[4px] ring-background ring-offset-2">
             <Image
               src="/assets/profile/ceo.png"
               alt="CEO"
@@ -110,8 +110,9 @@ export default function Home() {
           <OurService />
         </div>
       </div>
-      <div className=" min-h-screen flex flex-col justify-center items-center relative bg-gradient-to-b from-background from-70% to-30% to-background/50 py-[100px]">
+      <div className=" min-h-screen flex flex-col justify-center items-center relative bg-gradient-to-b from-background from-80% to-20% to-background py-[100px]">
         <Contact />
+        <BgGradient height={260} />
       </div>
     </div>
   );

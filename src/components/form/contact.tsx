@@ -23,6 +23,7 @@ import {
 import { services } from "@/constants/service.constant";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
+import { sendEmail } from "@/actions/sendEmail";
 
 export const ContactForm = () => {
   const formSchema = z.object({
@@ -58,14 +59,20 @@ export const ContactForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+
+    await sendEmail({
+      email: "",
+      name: values.firstName + " " + values.lastName,
+      message: values.message,
+    });
   }
 
   return (
-    <div className=" border border-white p-6 sm:p-8">
+    <div className="bg-background border border-white p-6 sm:p-8 z-20">
       <h3 className="sm:text-2xl text-xl font-semibold text-white mb-6">
         Send Us a Message
       </h3>
@@ -117,12 +124,12 @@ export const ContactForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Service Needed</FormLabel>
-                    <FormControl>
+                    <FormControl className="">
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
-                        <SelectTrigger className="border border-white/40 w-full">
+                        <SelectTrigger className="border border-white/40 w-full h-10">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
@@ -204,7 +211,7 @@ export const ContactForm = () => {
               />
             </div>
           </div>
-          <Button type="submit" className="mt-6 w-full">
+          <Button type="submit" className="mt-6 w-full cursor-pointer">
             Send Message
           </Button>
         </form>

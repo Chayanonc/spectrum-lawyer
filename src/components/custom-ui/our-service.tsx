@@ -5,11 +5,11 @@ import { services } from "@/constants/service.constant";
 
 export const OurService = () => {
   return (
-    <div className="sm:px-[230px]">
-      <section className="px-10 sm:px-0 space-y-10">
+    <div className="sm:px-[50px] xl:px-[220px]">
+      <section className="px-6 sm:px-0 space-y-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center justify-center gap-4">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-semibold uppercase bg-white rounded-full sm:px-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-semibold uppercase bg-white rounded-full sm:px-2 lg:px-4">
             <AnimatedShinyText className="text-primary/90">
               Our <span className="text-background/80">Legal Services</span>
             </AnimatedShinyText>
@@ -23,7 +23,7 @@ export const OurService = () => {
 
         {/* Services Grid */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <div
               key={index}
@@ -45,7 +45,7 @@ export const OurService = () => {
               {/* <p className="text-gray-300 mb-4 leading-relaxed">
                 {service.description}
               </p> */}
-              <ul className="space-y-2 my-3 sm:my-10">
+              <ul className="space-y-2 my-6 sm:my-10">
                 {service.details.map((detail, detailIndex) => (
                   <li
                     key={detailIndex}
