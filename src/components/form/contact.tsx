@@ -1,6 +1,5 @@
 "use client";
 import z from "zod";
-import { Checkbox } from "../ui/checkbox";
 import { Input } from "../ui/input";
 import {
   Select,
@@ -14,7 +13,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -24,8 +22,24 @@ import { services } from "@/constants/service.constant";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { sendEmail } from "@/actions/sendEmail";
+import { toast } from "sonner";
+import { useRef, useState } from "react";
+import { EmailTemplate } from "../template/email-message";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export const ContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  const handleCaptchaChange = (token: string | null) => {
+    setIsCaptchaVerified(!!token);
+  };
+
+  const handleCaptchaExpired = () => {
+    setIsCaptchaVerified(false);
+  };
+
   const formSchema = z.object({
     firstName: z.string().min(2, {
       message: "First Name is required.",
@@ -42,7 +56,7 @@ export const ContactForm = () => {
     phone: z.string().min(10, {
       message: "Phone number is required.",
     }),
-    message: z.string().min(10, {
+    message: z.string().min(1, {
       message: "Message is required.",
     }),
   });
@@ -60,15 +74,45 @@ export const ContactForm = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    if (!isCaptchaVerified) {
+      toast("Please verify you are not a robot", {
+        description: "ReCAPTCHA verification required",
+      });
+      return;
+    }
 
-    await sendEmail({
-      email: "",
-      name: values.firstName + " " + values.lastName,
-      message: values.message,
-    });
+    const fullname = values.firstName + " " + values.lastName;
+
+    try {
+      setIsLoading(true);
+      const emailMessage = EmailTemplate({
+        name: fullname,
+        email: values.email,
+        service: values.service,
+        phone: values.phone,
+        message: values.message,
+      });
+
+      await sendEmail({
+        email: values.email,
+        name: fullname,
+        html: emailMessage,
+      });
+      toast("Email has been sent", {
+        description: "We will get back to you as soon as possible",
+      });
+      form.reset();
+      setIsCaptchaVerified(false);
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+    } catch {
+      toast("Failed to send email", {
+        description: "Please try again",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -211,8 +255,21 @@ export const ContactForm = () => {
               />
             </div>
           </div>
-          <Button type="submit" className="mt-6 w-full cursor-pointer">
-            Send Message
+          <div className="flex justify-start my-6">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+              onChange={handleCaptchaChange}
+              onExpired={handleCaptchaExpired}
+              theme="dark"
+            />
+          </div>
+          <Button
+            type="submit"
+            className="mt-6 w-full cursor-pointer"
+            disabled={isLoading}
+          >
+            {isLoading ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </Form>

@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -14,11 +15,6 @@ export const metadata: Metadata = {
     "Spectrum Legal Solutions - International Law Firm in Phuket, Thailand",
   description:
     "Spectrum Legal Solutions is an international law firm based in Phuket, Thailand, providing comprehensive legal services including corporate law, international business, real estate, immigration, and cross-border legal matters for clients worldwide.",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   icons: {
     icon: [
       { url: "/assets/favico/favicon.ico", sizes: "any" },
@@ -104,6 +100,12 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -255,6 +257,7 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         {children}
+        <Toaster />
       </body>
     </html>
   );

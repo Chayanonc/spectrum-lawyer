@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import MainLayout from "../layout/main.layout";
 import React from "react";
 import Image from "next/image";
@@ -11,7 +10,7 @@ import { SquareArrowOutUpRight } from "lucide-react";
 export const Contact = () => {
   return (
     <MainLayout>
-      <section className="z-20 space-y-8 sm:space-y-10 md:space-y-12">
+      <section id="contact" className="z-20 space-y-8 sm:space-y-10 md:space-y-12 px-8 sm:px-0">
         {/* Header */}
         <div className="text-center">
           <div className="flex justify-center text-white">

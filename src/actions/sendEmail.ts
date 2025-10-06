@@ -14,19 +14,19 @@ const transporter = nodemailer.createTransport({
 export async function sendEmail({
   name,
   email,
-  message,
+  html,
 }: {
   name: string;
   email: string;
-  message: string;
+  html: string;
 }) {
   try {
     await transporter.sendMail({
       from: process.env.GMAIL_USERNAME,
-      to: "porx.dev@gmail.com", // Replace with your desired recipient
+      to: "info@spectrumlegal.co", // Replace with your desired recipient
       subject: `New message from ${name}`,
-      text: message as string,
-      //   replyTo: email as string,
+      html: html,
+      replyTo: email,
     });
     return { success: true, message: "Email sent successfully!" };
   } catch (error) {
