@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <div className="h-screen flex justify-center items-center relative bg-background">
+      <div className="h-dvh  flex justify-center items-center relative bg-background">
         <div className="absolute h-full w-full flex justify-center items-center">
           <div className="relative w-[500px] h-[500px] sm:w-full sm:h-full">
             <StripedPattern

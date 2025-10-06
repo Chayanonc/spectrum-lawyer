@@ -6,21 +6,21 @@
 :root {
   --background: #002f59;
   --foreground: #fafafa;
-  --card: #000000;
+  --card: #002f59;
   --card-foreground: #fafafa;
-  --popover: #262626;
+  --popover: #f47832;
   --popover-foreground: #fafafa;
   --primary: #f47832;
   --primary-foreground: #ffffff;
-  --secondary: #f47832;
+  --secondary: #0f0f0f;
   --secondary-foreground: #fafafa;
   --muted: #262626;
   --muted-foreground: #a1a1a1;
-  --accent: #000000;
+  --accent: #002f59;
   --accent-foreground: #fafafa;
   --destructive: #ff6467;
   --destructive-foreground: #fafafa;
-  --border: #1f1f1f;
+  --border: #0f0f0f;
   --input: #1f1f1f;
   --ring: #737373;
   --chart-1: #91c5ff;
@@ -40,7 +40,7 @@
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  --radius: 0.25rem;
+  --radius: 0rem;
   --shadow-x: 8.5px;
   --shadow-y: -2.5px;
   --shadow-blur: 28.5px;
@@ -65,21 +65,21 @@
 .dark {
   --background: #002f59;
   --foreground: #fafafa;
-  --card: #000000;
+  --card: #002f59;
   --card-foreground: #fafafa;
-  --popover: #262626;
+  --popover: #f47832;
   --popover-foreground: #fafafa;
-  --primary: #a99260;
+  --primary: #f47832;
   --primary-foreground: #ffffff;
-  --secondary: #a99260;
+  --secondary: #0f0f0f;
   --secondary-foreground: #fafafa;
   --muted: #262626;
   --muted-foreground: #a1a1a1;
-  --accent: #000000;
+  --accent: #002f59;
   --accent-foreground: #fafafa;
   --destructive: #ff6467;
   --destructive-foreground: #fafafa;
-  --border: #1f1f1f;
+  --border: #0f0f0f;
   --input: #1f1f1f;
   --ring: #737373;
   --chart-1: #91c5ff;
@@ -99,7 +99,7 @@
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  --radius: 0.25rem;
+  --radius: 0rem;
   --shadow-x: 8.5px;
   --shadow-y: -2.5px;
   --shadow-blur: 28.5px;
@@ -172,7 +172,8 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
-  --animate-shiny-text: shiny-text 8s infinite;
+  --animate-shiny-text: shiny-text 10s infinite;
+
   @keyframes shiny-text {
     0%,
     90%,
