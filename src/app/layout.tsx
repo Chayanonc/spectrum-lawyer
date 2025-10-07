@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -19,9 +20,7 @@ export const metadata: Metadata = {
       { url: "/assets/favico/favicon.ico", sizes: "any" },
       { url: "/assets/favico/icon1.png", type: "image/png" },
     ],
-    apple: [
-      { url: "/assets/favico/apple-icon.png", type: "image/png" },
-    ],
+    apple: [{ url: "/assets/favico/apple-icon.png", type: "image/png" }],
     other: [
       {
         rel: "mask-icon",
@@ -56,10 +55,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://spectrumlegal.co"),
   alternates: {
     canonical: "/",
-    languages: {
-      "th-TH": "/th",
-      "en-US": "/en",
-    },
   },
   openGraph: {
     title:
@@ -103,6 +98,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -112,14 +113,32 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Additional favicon meta tags */}
-        <link rel="icon" type="image/x-icon" href="/assets/favico/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favico/icon1.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favico/icon1.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favico/apple-icon.png" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/assets/favico/favicon.ico"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/assets/favico/icon1.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/assets/favico/icon1.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/assets/favico/apple-icon.png"
+        />
         <link rel="mask-icon" href="/assets/favico/icon0.svg" color="#002f59" />
         <meta name="msapplication-TileColor" content="#002f59" />
         <meta name="theme-color" content="#002f59" />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -234,6 +253,7 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         {children}
+        <Toaster />
       </body>
     </html>
   );
