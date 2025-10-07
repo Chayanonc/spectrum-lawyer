@@ -74,15 +74,21 @@ export const ContactForm = () => {
         message: values.message,
       });
 
-      await sendEmail({
+      const res = await sendEmail({
         email: values.email,
         name: fullname,
         html: emailMessage,
       });
 
-      toast("Email has been sent", {
-        description: "We will get back to you as soon as possible",
-      });
+      if (res.success) {
+        toast("Email has been sent", {
+          description: "We will get back to you as soon as possible",
+        });
+      } else {
+        toast("Failed to send email", {
+          description: "Please try again",
+        });
+      }
       form.reset();
     } catch {
       toast("Failed to send email", {
@@ -164,6 +170,14 @@ export const ContactForm = () => {
                               {service.title}
                             </SelectItem>
                           ))}
+
+                          <SelectItem
+                            key={"other"}
+                            value={"other"}
+                            className="text-sm sm:text-base"
+                          >
+                            Other
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </FormControl>

@@ -21,30 +21,33 @@ export async function sendEmail({
   html: string;
 }) {
   try {
+    // Validate environment variables
+    if (!process.env.GMAIL_USERNAME || !process.env.GMAIL_PASSWORD) {
+      throw new Error("Email configuration is missing");
+    }
+
     await transporter.sendMail({
-      from: `"Spectrum Legal Solutions" ${process.env.GMAIL_USERNAME}`,
-      to: [
-        "piyaporn.t@spectrumlegal.co",
-        {
-          name: "Spectrum Legal Solutions",
-          address: "piyaporn.t@spectrumlegal.co",
-        },
-      ],
-      subject: `New message from ${name}`,
+      from: `"Spectrum Legal Solutions" <${process.env.GMAIL_USERNAME}>`,
+      to: "piyaporn.t@spectrumlegal.co",
+      subject: `New Contact Form Submission from ${name}`,
       html: html,
       cc: email,
+      replyTo: email,
+      headers: {
+        "X-Mailer": "Spectrum Legal Solutions",
+        "X-Priority": "3",
+        "X-MSMail-Priority": "Normal",
+        Importance: "Normal",
+        "Content-Type": "text/html; charset=UTF-8",
+      },
     });
 
-    // await transporter.sendMail({
-    //   from: process.env.GMAIL_USERNAME,
-    //   to: "info@spectrumlegal.co", // Replace with your desired recipient
-    //   subject: `New message from ${name}`,
-    //   html: html,
-    //   replyTo: email,
-    // });
     return { success: true, message: "Email sent successfully!" };
   } catch (error) {
-    console.error(error);
-    return { success: false, message: "Failed to send email." };
+    console.error("Email sending error:", error);
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "Failed to send email.",
+    };
   }
 }

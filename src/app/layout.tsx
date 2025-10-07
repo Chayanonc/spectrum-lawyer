@@ -55,10 +55,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://spectrumlegal.co"),
   alternates: {
     canonical: "/",
-    languages: {
-      "th-TH": "/th",
-      "en-US": "/en",
-    },
   },
   openGraph: {
     title:
