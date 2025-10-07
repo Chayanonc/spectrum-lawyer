@@ -6,7 +6,7 @@ import { services } from "@/constants/service.constant";
 export const OurService = () => {
   return (
     <div className="sm:px-[50px] xl:px-[220px]">
-      <section id="our-service" className="px-6 sm:px-0 space-y-10">
+      <section className="px-6 sm:px-0 space-y-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center justify-center gap-4">
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-semibold uppercase bg-white rounded-full sm:px-2 lg:px-4">

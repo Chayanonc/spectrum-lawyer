@@ -10,7 +10,7 @@ import { SquareArrowOutUpRight } from "lucide-react";
 export const Contact = () => {
   return (
     <MainLayout>
-      <section id="contact" className="z-20 space-y-8 sm:space-y-10 md:space-y-12 px-8 sm:px-0">
+      <section className="z-20 space-y-8 sm:space-y-10 md:space-y-12 px-8 sm:px-0">
         {/* Header */}
         <div className="text-center">
           <div className="flex justify-center text-white">

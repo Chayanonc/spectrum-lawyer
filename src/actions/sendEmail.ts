@@ -22,12 +22,26 @@ export async function sendEmail({
 }) {
   try {
     await transporter.sendMail({
-      from: process.env.GMAIL_USERNAME,
-      to: "info@spectrumlegal.co", // Replace with your desired recipient
+      from: `"Spectrum Legal Solutions" ${process.env.GMAIL_USERNAME}`,
+      to: [
+        "piyaporn.t@spectrumlegal.co",
+        {
+          name: "Spectrum Legal Solutions",
+          address: "piyaporn.t@spectrumlegal.co",
+        },
+      ],
       subject: `New message from ${name}`,
       html: html,
-      replyTo: email,
+      cc: email,
     });
+
+    // await transporter.sendMail({
+    //   from: process.env.GMAIL_USERNAME,
+    //   to: "info@spectrumlegal.co", // Replace with your desired recipient
+    //   subject: `New message from ${name}`,
+    //   html: html,
+    //   replyTo: email,
+    // });
     return { success: true, message: "Email sent successfully!" };
   } catch (error) {
     console.error(error);

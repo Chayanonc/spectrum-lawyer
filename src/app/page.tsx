@@ -1,5 +1,6 @@
 import BgGradient from "@/components/custom-ui/bg-gradien";
 import { Contact } from "@/components/custom-ui/contact";
+import { HomeBtn } from "@/components/custom-ui/home-btn";
 import { OurService } from "@/components/custom-ui/our-service";
 import MainLayout from "@/components/layout/main.layout";
 import { StripedPattern } from "@/components/magicui/striped-pattern";
@@ -67,17 +68,7 @@ export default function Home() {
                 expertise to deliver clear, practical, and effective legal
                 services.
               </p>
-              <div className="flex-col sm:flex-row flex gap-4 justify-center flex-wrap">
-                <Button className="min-w-[200px] bg-[#f47832]">
-                  Get Consultation
-                </Button>
-                <Button
-                  variant="outline"
-                  className="min-w-[200px] text-white border-white hover:bg-white hover:text-black"
-                >
-                  Our Services
-                </Button>
-              </div>
+              <HomeBtn />
             </div>
           </MainLayout>
         </div>
@@ -96,7 +87,10 @@ export default function Home() {
             id="flickering-grid"
           />
         </div>
-        <div className="w-full h-full flex flex-col justify-center items-center relative gap-10">
+        <div
+          id="our-service"
+          className="w-full h-full flex flex-col justify-center items-center relative gap-10"
+        >
           <div className="rounded-full overflow-hidden w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] ring-[4px] ring-background ring-offset-2">
             <Image
               src="/assets/profile/ceo.png"
@@ -110,7 +104,10 @@ export default function Home() {
           <OurService />
         </div>
       </div>
-      <div className=" min-h-screen flex flex-col justify-center items-center relative bg-gradient-to-b from-background from-80% to-20% to-background py-[100px]">
+      <div
+        id="contact"
+        className=" min-h-screen flex flex-col justify-center items-center relative bg-gradient-to-b from-background from-80% to-20% to-background py-[100px]"
+      >
         <Contact />
         <BgGradient height={260} />
       </div>

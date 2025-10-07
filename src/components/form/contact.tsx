@@ -25,21 +25,9 @@ import { sendEmail } from "@/actions/sendEmail";
 import { toast } from "sonner";
 import { useRef, useState } from "react";
 import { EmailTemplate } from "../template/email-message";
-import ReCAPTCHA from "react-google-recaptcha";
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-
-  const handleCaptchaChange = (token: string | null) => {
-    setIsCaptchaVerified(!!token);
-  };
-
-  const handleCaptchaExpired = () => {
-    setIsCaptchaVerified(false);
-  };
-
   const formSchema = z.object({
     firstName: z.string().min(2, {
       message: "First Name is required.",
@@ -74,13 +62,6 @@ export const ContactForm = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (!isCaptchaVerified) {
-      toast("Please verify you are not a robot", {
-        description: "ReCAPTCHA verification required",
-      });
-      return;
-    }
-
     const fullname = values.firstName + " " + values.lastName;
 
     try {
@@ -98,14 +79,11 @@ export const ContactForm = () => {
         name: fullname,
         html: emailMessage,
       });
+
       toast("Email has been sent", {
         description: "We will get back to you as soon as possible",
       });
       form.reset();
-      setIsCaptchaVerified(false);
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
     } catch {
       toast("Failed to send email", {
         description: "Please try again",
@@ -254,15 +232,6 @@ export const ContactForm = () => {
                 )}
               />
             </div>
-          </div>
-          <div className="flex justify-start my-6">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-              onChange={handleCaptchaChange}
-              onExpired={handleCaptchaExpired}
-              theme="dark"
-            />
           </div>
           <Button
             type="submit"
