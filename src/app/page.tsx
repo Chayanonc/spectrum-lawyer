@@ -30,7 +30,7 @@ export default function Home() {
               <div className="w-[80px] h-[80px] sm:w-[300px] sm:h-[300px] md:w-[150px] md:h-[150px] lg:w-[250px] lg:h-[250px] text-white rounded-2xl">
                 <Image
                   src="/assets/logo/spectrum-white.png"
-                  alt="Spectrum Legal Solutions - International Law Firm in Phuket, Thailand"
+                  alt="Spectrum Legal Solutions - Law Firm Phuket Thailand | ทนายความภูเก็ต"
                   width={300}
                   height={300}
                   quality={100}

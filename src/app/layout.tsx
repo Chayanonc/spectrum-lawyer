@@ -12,9 +12,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title:
-    "Spectrum Legal Solutions - International Law Firm in Phuket, Thailand",
+    "Law Firm Phuket | Legal Services Phuket | ทนายความภูเก็ต - Spectrum Legal Solutions",
   description:
-    "Spectrum Legal Solutions is an international law firm based in Phuket, Thailand, providing comprehensive legal services including corporate law, international business, real estate, immigration, and cross-border legal matters for clients worldwide.",
+    "Leading law firm in Phuket, Thailand. Expert legal services including corporate law, property law, work permits, visas, company registration, and business licensing. Professional Thai and international lawyers serving Phuket and Thailand. ทนายความภูเก็ต บริการกฎหมายครบวงจร",
   icons: {
     icon: [
       { url: "/assets/favico/favicon.ico", sizes: "any" },
@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     ],
   },
   keywords: [
+    "lawfirm phuket",
+    "legal phuket",
+    "ทนายความภูเก็ต",
     "international law firm",
     "phuket lawyer",
     "thailand legal services",
@@ -40,9 +43,23 @@ export const metadata: Metadata = {
     "cross border legal",
     "foreign investment thailand",
     "legal consultation phuket",
-    "ทนายความภูเก็ต",
+    "phuket law firm",
+    "legal services phuket",
+    "thailand lawyer",
+    "phuket attorney",
+    "legal advisor phuket",
+    "business law phuket",
+    "property law phuket",
+    "work permit phuket",
+    "visa services phuket",
+    "company registration phuket",
+    "boi investment phuket",
+    "foreign business license phuket",
     "ที่ปรึกษากฎหมายต่างประเทศ",
     "กฎหมายธุรกิจระหว่างประเทศ",
+    "ทนายความต่างประเทศ",
+    "บริการกฎหมายภูเก็ต",
+    "ที่ปรึกษาทางกฎหมาย",
   ],
   authors: [{ name: "Spectrum Legal Solutions" }],
   creator: "Spectrum Legal Solutions",
@@ -58,9 +75,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Spectrum Legal Solutions - International Law Firm in Phuket, Thailand",
+      "Law Firm Phuket | Legal Services Phuket | ทนายความภูเก็ต - Spectrum Legal Solutions",
     description:
-      "Spectrum Legal Solutions is an international law firm based in Phuket, Thailand, providing comprehensive legal services for international clients and businesses.",
+      "Leading law firm in Phuket, Thailand. Expert legal services including corporate law, property law, work permits, visas, company registration, and business licensing. ทนายความภูเก็ต บริการกฎหมายครบวงจร",
     url: "https://spectrumlegal.co",
     siteName: "Spectrum Legal Solutions",
     locale: "en_US",
@@ -70,16 +87,16 @@ export const metadata: Metadata = {
         url: "/assets/logo/spectrum-logo.svg",
         width: 1200,
         height: 630,
-        alt: "Spectrum Legal Solutions Logo",
+        alt: "Spectrum Legal Solutions - Law Firm Phuket Thailand | ทนายความภูเก็ต",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Spectrum Legal Solutions - International Law Firm in Phuket, Thailand",
+      "Law Firm Phuket | Legal Services Phuket | ทนายความภูเก็ต - Spectrum Legal Solutions",
     description:
-      "International law firm providing comprehensive legal services in Phuket, Thailand for global clients.",
+      "Leading law firm in Phuket, Thailand. Expert legal services for corporate law, property law, work permits, visas, and business licensing. ทนายความภูเก็ต",
     images: ["/assets/logo/spectrum-logo.svg"],
   },
   robots: {
@@ -135,9 +152,16 @@ export default function RootLayout({
           sizes="180x180"
           href="/assets/favico/apple-icon.png"
         />
-        <link rel="mask-icon" href="/assets/favico/icon0.svg" color="#002f59" />
+        <link rel="mask-icon" href="/assets/logo/spectrum-logo.svg" color="#002f59" />
         <meta name="msapplication-TileColor" content="#002f59" />
+        <meta name="msapplication-TileImage" content="/assets/logo/spectrum-blue.png" />
         <meta name="theme-color" content="#002f59" />
+        
+        {/* Additional meta tags for better Google search display */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta name="twitter:image:alt" content="Spectrum Legal Solutions - Law Firm Phuket Thailand | ทนายความภูเก็ต" />
 
         <script
           type="application/ld+json"
@@ -146,8 +170,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LegalService",
               name: "Spectrum Legal Solutions",
+              alternateName: "Law Firm Phuket",
               description:
-                "Spectrum Legal Solutions is an international law firm based in Phuket, Thailand, providing comprehensive legal services including corporate law, international business, real estate, immigration, and cross-border legal matters for clients worldwide.",
+                "Leading law firm in Phuket, Thailand providing comprehensive legal services including corporate law, property law, work permits, visas, company registration, business licensing, and immigration services. Professional Thai and international lawyers serving Phuket and Thailand. ทนายความภูเก็ต บริการกฎหมายครบวงจร",
               url: "https://spectrumlegal.co",
               logo: "https://spectrumlegal.co/assets/logo/spectrum-logo.svg",
               image: "https://spectrumlegal.co/assets/logo/spectrum-logo.svg",
@@ -177,42 +202,60 @@ export default function RootLayout({
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "International Legal Services",
+                name: "Legal Services Phuket Thailand",
                 itemListElement: [
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "International Business Law",
+                      name: "Corporate Law Phuket",
                       description:
-                        "Cross-border business transactions, foreign investment, and international corporate law",
+                        "Company registration, corporate governance, and business compliance in Thailand. Foreign Business License (FBL) and BOI investment support.",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Real Estate Law",
+                      name: "Property Law Phuket",
                       description:
-                        "Property transactions, land ownership, and real estate investment in Thailand",
+                        "Property transactions, land ownership, condominium purchases, and real estate investment in Phuket and Thailand",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Immigration Law",
+                      name: "Work Permit & Visa Services Phuket",
                       description:
-                        "Work permits, visas, residency, and immigration services for foreigners",
+                        "Work permit applications, visa renewals, BOI visas, and immigration services for foreigners in Thailand",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Corporate Law",
+                      name: "Business License Phuket",
                       description:
-                        "Company formation, corporate governance, and business compliance in Thailand",
+                        "Foreign Business License (FBL), BOI applications, restaurant, hotel, tourism, and import/export licenses",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Intellectual Property Law",
+                      description:
+                        "Trademark registration, copyright protection, licensing agreements, and IP enforcement in Thailand",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Litigation & Dispute Resolution",
+                      description:
+                        "Civil, commercial, property disputes, debt recovery, mediation, and arbitration services in Phuket",
                     },
                   },
                 ],

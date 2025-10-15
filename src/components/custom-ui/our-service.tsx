@@ -11,7 +11,7 @@ export const OurService = () => {
         <div className="text-center flex flex-col items-center justify-center gap-4">
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-semibold uppercase bg-white rounded-full sm:px-2 lg:px-4">
             <AnimatedShinyText className="text-primary/90">
-              Our <span className="text-background/80">Legal Services</span>
+              Legal Services <span className="text-background/80">Phuket Thailand</span>
             </AnimatedShinyText>
           </h2>
           {/* <p className="text-base text-black sm:text-xl max-w-3xl mx-auto leading-relaxed p-3">
